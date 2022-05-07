@@ -1,15 +1,12 @@
 import React from 'react';
-import ChatRoom from './components/ChatRoom'
+import { AuthProvider } from './context/auth';
+import AppRoutes from './routes/AppRoutes';
 
-class App extends React.Component {
-  render() {
-    return (
-        <>
-            <h1>Chat Room</h1>
-            <ChatRoom/>
-        </>
-    )
-  }
+function App() {
+  return (
+    <AuthProvider>
+       <AppRoutes />
+    </AuthProvider>
+  )
 }
-
 export default App;
