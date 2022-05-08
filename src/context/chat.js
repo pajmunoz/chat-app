@@ -43,7 +43,9 @@ export const ChatProvider = ({ children }) => {
         message: message,
         time: Date.now(),
       });
+      
       return docRef;
+      
     } catch (error) {
       //console.error("Error sending message", error);
     }

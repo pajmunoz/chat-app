@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth";
+import Gif from "../assets/images/giphy.gif"
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -38,7 +39,8 @@ const LoginPage = () => {
     } catch (error) {}
   };
   return (
-    <div className="cont card">
+    <div className="cont card bg-setup" style={{backgroundImage:`url(${Gif} )`}}>
+      
       <h2 className="text-center">Inicia Sesión en PabliChat</h2>
       <form onSubmit={handleSubmit}>
         <div className="input-group input-group-lg my-3">

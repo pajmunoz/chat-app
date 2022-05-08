@@ -2,13 +2,13 @@ body {
   user-select: none;
 }
 .chat {
-  height: 100%;
+  min-height: 100vh;
   position: relative;
   padding: 2em 2em 5em 2em;
   overflow: hidden;
 }
 .chat-scroll {
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .chat-form-container {
   position: fixed;
@@ -50,8 +50,13 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .cont{
-  width: 50%;
+  max-width: 30em;
   margin: 10em auto;
   padding: 3em;
 
+
+}
+.bg-setup{
+  background-repeat: no-repeat;
+  background-size: cover;
 }

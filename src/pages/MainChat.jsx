@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/auth";
 import { ChatContext } from "../context/chat";
 import { useNavigate } from "react-router-dom";
@@ -11,11 +11,6 @@ const MainChat = () => {
 
   const { sendMessage, getChatHistory, chatData, loading, updateChatHistory } =
     useContext(ChatContext);
-
-  const messagesEndRef = useRef(null);
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const [messageToSave, setMessageToSave] = useState("");
   //console.log(user);
@@ -56,15 +51,23 @@ const MainChat = () => {
       </div>
     );
   }
+  const calendarStrings = {
+    lastDay: "[Ayer a las] LT",
+    sameDay: "[Hoy a las] LT",
+    sameElse: "L",
+  };
 
   return (
     <div className="chat bg-light">
       <div className="head-top">
         <div className="nav-top d-flex justify-content-between bg-light row">
-          <p className="col">
+          <p className="col-12 col-sm-6">
             Iniciaste Sesión como <b> {user?.email}</b>
           </p>
-          <button className="btn btn-dark col" onClick={signUserOut}>
+          <button
+            className="btn btn-dark col-12 col-md-6"
+            onClick={signUserOut}
+          >
             <i>Salir del chat </i>
             <b>(Log Out)</b>
           </button>
@@ -77,19 +80,21 @@ const MainChat = () => {
           return c.from === user.email ? (
             <div
               key={c.time}
-              className="user-chat card text-end w-75 float-end my-3 bg-primary text-light"
+              className="user-chat card border-secondary text-end w-75 float-end my-3 "
             >
               <div className="card-body">
-                <div className="chat-info card-title ">
-                  {c.from} en{" "}
-                  <span>
+                <div className="d-flex flex-wrap justify-content-between">
+                  <div className="chat-info card-title ">{c.from} </div>
+                  <div className="fst-italic fw-light">
                     {" "}
-                    <Moment locale="es" format="MMMM DD, YYYY HH:mm">
+                    <Moment locale="es" calendar={calendarStrings}>
                       {c.time}
                     </Moment>
-                  </span>
+                  </div>
                 </div>
-                <div className="chat-message card-text">{c.message}</div>
+              </div>
+              <div className="card-footer chat-message card-text">
+                {c.message}
               </div>
             </div>
           ) : (
@@ -98,17 +103,18 @@ const MainChat = () => {
               className="sender-chat card text-start w-75 my-3 bg-secondary text-light"
             >
               <div className="card-body">
-                <div className="chat-info card-title ">
-                  {c.from} en{" "}
-                  <span>
+                <div className="d-flex flex-wrap justify-content-between">
+                  <div className="chat-info card-title ">{c.from} </div>
+                  <div className="fst-italic fw-light">
                     {" "}
-                    <Moment locale="es" format="MMMM DD, YYYY HH:mm">
+                    <Moment locale="es" calendar={calendarStrings}>
                       {c.time}
                     </Moment>
-                  </span>
+                  </div>
                 </div>
-                <div className="chat-message card-text">{c.message}</div>
+                
               </div>
+              <div className="card-footer chat-message card-text">{c.message}</div>
             </div>
           );
         })}
