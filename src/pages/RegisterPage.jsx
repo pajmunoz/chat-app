@@ -42,8 +42,9 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="text-center">Regístrate por favor</h2>
+    <div className="cont card">
+      <h2 className="text-center">Crea una cuenta</h2>
+      <p className="text-center">Es rápido y fácil</p>
       <form onSubmit={handleSubmit}>
         <div className="input-group input-group-lg my-3">
         <span className="input-group-text" id="inputGroup-sizing-lg">
@@ -80,7 +81,7 @@ const RegisterPage = () => {
           <button
             type="submit"
             value={loading ? "validadndo..." : "Registrarte"}
-            className="btn btn-primary btn-lg"
+            className="btn btn-success btn-lg"
           >
             {" "}
             Registrarte

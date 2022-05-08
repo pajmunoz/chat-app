@@ -38,8 +38,8 @@ const LoginPage = () => {
     } catch (error) {}
   };
   return (
-    <div className="container">
-      <h2 className="text-center">Inicia Sesión para chatear</h2>
+    <div className="cont card">
+      <h2 className="text-center">Inicia Sesión en PabliChat</h2>
       <form onSubmit={handleSubmit}>
         <div className="input-group input-group-lg my-3">
           <span className="input-group-text" id="inputGroup-sizing-lg">
@@ -80,7 +80,7 @@ const LoginPage = () => {
             className="btn btn-primary btn-lg"
           >
             {" "}
-            Logearte
+            Inicia Sesión
           </button>
         </div>
       </form>

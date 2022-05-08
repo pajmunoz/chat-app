@@ -16,7 +16,7 @@ const firebaseConfig = {
   appId: "1:251663900300:web:ced3fa7b12aeb22dbca5a9",
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 export const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
       return newUser;
     } catch (error) {
-      console.error('Error crando usuario',error)
+      //console.error('Error crando usuario',error)
       if (error.code === "auth/email-already-in-use") {
         setError(true);
         setMessage("El usuario que ingresaste ya existe");
@@ -82,8 +82,8 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
       return signedInUser;
     } catch (error) {
-        console.error('error login user ', error)
-        console.error('Error creating user ',error)
+        //console.error('error login user ', error)
+        //console.error('Error creating user ',error)
         if(error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found'|| error.code === 'auth/invalid-email') {
           setError(true);
           setMessage("Usuario/contraseña inválidos")
@@ -99,7 +99,7 @@ export const AuthProvider = ({ children }) => {
 
   const persistUser = () => {
     const userExists = localStorage.getItem('chat-user')
-    console.log(userExists)
+    //console.log(userExists)
     if (userExists) {
       const user= JSON.parse(userExists)
       setUser(user)

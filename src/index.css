@@ -1,13 +1,57 @@
+body {
+  user-select: none;
+}
 .chat {
-  min-height: 100vh;
+  height: 100%;
   position: relative;
-  padding:2em;
+  padding: 2em 2em 5em 2em;
+  overflow: hidden;
+}
+.chat-scroll {
+  overflow: scroll;
 }
 .chat-form-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 2em;
-    width: calc(100% - 4em);
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2em;
+  width: calc(100% - 4em);
+}
+.spin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+}
+.head-top{
+  min-height:6em;
+}
+.nav-top {
+  position: fixed;
+  top: 0;
+  right: 0.7em;
+  width: 100%;
+  z-index: 1;
+  padding: 2em 2em;
+
+
+  background: rgba(255, 255, 255, 0.793) !important;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.793) !important;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.cont{
+  width: 50%;
+  margin: 10em auto;
+  padding: 3em;
 
 }
