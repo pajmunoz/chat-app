@@ -40,8 +40,8 @@ const LoginPage = () => {
   };
   return (
     <div className="cont card bg-setup" style={{backgroundImage:`url(${Gif} )`}}>
-      
-      <h2 className="text-center">Inicia Sesión en PabliChat</h2>
+      <h1 className="text-center display-2">PabliChat</h1>
+      <h2 className="text-center">Inicia Sesión</h2>
       <form onSubmit={handleSubmit}>
         <div className="input-group input-group-lg my-3">
           <span className="input-group-text" id="inputGroup-sizing-lg">
@@ -50,7 +50,7 @@ const LoginPage = () => {
           <input
             type="text"
             name="email"
-            placeholder="Escribe tu correo"
+            placeholder=""
             value={newUser.email}
             onChange={handleInputChange}
             className="form-control form-control-lg"
@@ -64,15 +64,15 @@ const LoginPage = () => {
           <input
             type="new-password"
             name="password"
-            placeholder="Escribe tu contraseña"
+            placeholder=""
             value={newUser.password}
             onChange={handleInputChange}
             className="form-control form-control-lg"
           />
         </div>
-        <div>
+        <div className="text-center">
           {error && (
-            <div className="alert alert-dark" role="alert">
+            <div className="alert alert-danger" role="alert">
               {message}
             </div>
           )}

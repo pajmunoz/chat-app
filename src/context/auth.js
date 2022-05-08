@@ -49,13 +49,18 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
       return newUser;
     } catch (error) {
-      //console.error('Error crando usuario',error)
-      if (error.code === "auth/email-already-in-use") {
+      console.error('Error crando usuario',error)
+      if (error.code === "auth/email-already-in-use" ) {
         setError(true);
         setMessage("El usuario que ingresaste ya existe");
         setLoading(false);
         return;
-      } 
+      } else if(error.code=== "auth/weak-password"){
+        setError(true);
+        setMessage("La contraseña debe tener mínimo 6 caracteres");
+        setLoading(false);
+        return;
+      }
       
     } finally {
       setLoading(false);

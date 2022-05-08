@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth";
+import Gif2 from "../assets/images/giphy2.gif"
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -42,7 +43,8 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="cont card">
+    <div className="cont card bg-setup" style={{backgroundImage:`url(${Gif2} )`}}>
+      <h1 className="text-center display-2">PabliChat</h1>
       <h2 className="text-center">Crea una cuenta</h2>
       <p className="text-center">Es rápido y fácil</p>
       <form onSubmit={handleSubmit}>
@@ -53,7 +55,7 @@ const RegisterPage = () => {
           <input
             type="text"
             name="email"
-            placeholder="Email"
+            placeholder=""
             value={newUser.email}
             onChange={handleInputChange}
             className="form-control form-control-lg"
@@ -66,15 +68,15 @@ const RegisterPage = () => {
           <input
             type="new-password"
             name="password"
-            placeholder="Password"
+            placeholder=""
             value={newUser.password}
             onChange={handleInputChange}
             className="form-control form-control-lg"
           />
         </div>
-        <div>
+        <div className="text-center">
           {error && (
-            <div className="alert alert-dark" role="alert">
+            <div className="alert alert-danger" role="alert">
               {message}
             </div>
           )}
