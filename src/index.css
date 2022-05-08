@@ -1,0 +1,13 @@
+.chat {
+  min-height: 100vh;
+  position: relative;
+  padding:2em;
+}
+.chat-form-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2em;
+    width: calc(100% - 4em);
+
+}
